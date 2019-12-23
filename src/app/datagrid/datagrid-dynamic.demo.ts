@@ -36,7 +36,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   public contextMenuEvent: any;
   public contextMenuId = 'grid-context-menu';
   private menuItemsChoice = -1;
-  public menuItems: Array<{label: string}> = [];
+  public menuItems: MenuItem[];
 
   constructor(
     private service: DataGridDemoService
@@ -166,7 +166,13 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
         this.menuItems.push({ label: 'Setting Two' });
         this.menuItems.push({ label: 'Settings Three' });
         this.menuItems.push({ label: 'Setting Four' });
-        this.menuItems.push({ label: 'Setting Five' });
+        this.menuItems.push({
+          label: 'Setting Five',
+          submenu: [
+            { label: 'Sub Menu 1' },
+            { label: 'Sub Menu 2' }
+          ]
+        });
         break;
 
       case 1:
@@ -190,3 +196,8 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
     }
   }
 }
+
+type MenuItem = {
+  label: string,
+  submenu?: MenuItem[];
+};
