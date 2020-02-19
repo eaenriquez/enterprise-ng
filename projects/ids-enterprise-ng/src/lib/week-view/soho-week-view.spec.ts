@@ -160,6 +160,7 @@ describe('Soho Week view Chart Render', () => {
   });
 
   it('Check HTML content', () => {
+    Soho.Locale.set('en-US');
     comp.locale = 'en-US';
     comp.eventTypes = eventTypes;
     comp.events = events;
