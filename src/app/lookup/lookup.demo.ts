@@ -82,7 +82,8 @@ export class LookupDemoComponent {
         // Server filtering
         dataResult = productsData.filter(data => {
           return data.id.toString().includes(filter) ||
-            data.productName.toLowerCase().includes(filter);
+            data.productName.toLowerCase().includes(filter) ||
+            data.productId.toString().includes(filter);
         });
       }
 
@@ -137,6 +138,10 @@ export class LookupDemoComponent {
     const filter = req.filterExpr && req.filterExpr[0] && req.filterExpr[0].value;
     this.requestData(filter, req.activePage, req.pagesize).then(result => {
       req.total = result.total;
+      console.group();
+      console.log(result);
+      console.log(req);
+      console.groupEnd();
       response(result.data, req);
     });
   }

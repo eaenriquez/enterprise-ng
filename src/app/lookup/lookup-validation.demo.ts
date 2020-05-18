@@ -58,7 +58,7 @@ export class LookupValidationDemoComponent implements AfterViewInit {
 
       if (filter) {
         // Server filtering
-        dataResult = productsData.filter( data => {
+        dataResult = productsData.filter(data => {
           return data.id.toString().includes(filter) ||
             data.productName.toLowerCase().includes(filter);
         });
@@ -85,7 +85,7 @@ export class LookupValidationDemoComponent implements AfterViewInit {
     this.data_product = [];
 
     // Some Sample Data
-    productsData.forEach( data => {
+    productsData.forEach(data => {
       this.data_product.push(data);
     });
 
@@ -117,7 +117,7 @@ export class LookupValidationDemoComponent implements AfterViewInit {
    */
   source(req: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) {
     const filter = req.filterExpr && req.filterExpr[0] && req.filterExpr[0].value;
-    this.requestData(filter, req.activePage, req.pagesize).then( result => {
+    this.requestData(filter, req.activePage, req.pagesize).then(result => {
       req.total = result.total;
       response(result.data, req);
     });
