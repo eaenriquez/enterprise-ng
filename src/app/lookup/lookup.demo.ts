@@ -81,6 +81,7 @@ export class LookupDemoComponent {
       let totalResult = productsData;
 
       if (filter) {
+        console.log(filter);
         // Server filtering
         dataResult = productsData.filter(data => {
           return data.id.toString().includes(filter) ||
@@ -147,7 +148,11 @@ export class LookupDemoComponent {
     const filter = req.filterExpr && req.filterExpr[0] && req.filterExpr[0].value;
     this.requestData(filter, req.activePage, req.pagesize).then(result => {
       req.total = result.total;
-      req['grandTotal'] = result.grandTotal;
+
+      if (req.filterExpr && req.filterExpr[0]) {
+        req.total = result.total;
+        req['grandTotal'] = result.grandTotal;
+      }
       response(result.data, req);
     });
   }
