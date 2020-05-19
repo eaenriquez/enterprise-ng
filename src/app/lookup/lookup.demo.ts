@@ -108,8 +108,6 @@ export class LookupDemoComponent {
           grandTotal: productsData.length,
           data: dataResult,
         });
-        console.log(dataResult);
-        console.log(totalResult);
       }, 1000);
     });
   }
