@@ -11,6 +11,7 @@ import { SohoLookupComponent } from 'ids-enterprise-ng';
 export interface FakeResponse {
   response: number;
   total: number;
+  grandTotal: number;
   data: Object[];
 }
 
@@ -55,10 +56,16 @@ export class LookupValidationDemoComponent implements AfterViewInit {
     // would be done server-side
     return new Promise((resolve) => {
       let dataResult = productsData;
+      let totalResult = productsData;
 
       if (filter) {
         // Server filtering
         dataResult = productsData.filter(data => {
+          return data.id.toString().includes(filter) ||
+            data.productName.toLowerCase().includes(filter);
+        });
+
+        totalResult = productsData.filter(data => {
           return data.id.toString().includes(filter) ||
             data.productName.toLowerCase().includes(filter);
         });
@@ -73,8 +80,9 @@ export class LookupValidationDemoComponent implements AfterViewInit {
       setTimeout(() => {
         resolve({
           response: 200,
-          total: productsData.length,
-          data: dataResult
+          total: totalResult.length,
+          grandTotal: productsData.length,
+          data: dataResult,
         });
       }, 1000);
     });

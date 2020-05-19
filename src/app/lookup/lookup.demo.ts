@@ -9,6 +9,7 @@ import {
 export interface FakeResponse {
   response: number;
   total: number;
+  grandTotal: number;
   data: Object[];
 }
 
@@ -77,10 +78,17 @@ export class LookupDemoComponent {
     // would be done server-side
     return new Promise((resolve) => {
       let dataResult = productsData;
+      let totalResult = productsData;
 
       if (filter) {
         // Server filtering
         dataResult = productsData.filter(data => {
+          return data.id.toString().includes(filter) ||
+            data.productName.toLowerCase().includes(filter) ||
+            data.productId.toString().includes(filter);
+        });
+
+        totalResult = productsData.filter(data => {
           return data.id.toString().includes(filter) ||
             data.productName.toLowerCase().includes(filter) ||
             data.productId.toString().includes(filter);
@@ -96,9 +104,12 @@ export class LookupDemoComponent {
       setTimeout(() => {
         resolve({
           response: 200,
-          total: productsData.length,
-          data: dataResult
+          total: totalResult.length,
+          grandTotal: productsData.length,
+          data: dataResult,
         });
+        console.log(dataResult);
+        console.log(totalResult);
       }, 1000);
     });
   }
@@ -138,10 +149,7 @@ export class LookupDemoComponent {
     const filter = req.filterExpr && req.filterExpr[0] && req.filterExpr[0].value;
     this.requestData(filter, req.activePage, req.pagesize).then(result => {
       req.total = result.total;
-      console.group();
-      console.log(result);
-      console.log(req);
-      console.groupEnd();
+      req['grandTotal'] = result.grandTotal;
       response(result.data, req);
     });
   }
