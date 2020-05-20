@@ -81,7 +81,6 @@ export class LookupDemoComponent {
       let totalResult = productsData;
 
       if (filter) {
-        console.log(filter);
         // Server filtering
         dataResult = productsData.filter(data => {
           return data.id.toString().includes(filter) ||
@@ -107,7 +106,7 @@ export class LookupDemoComponent {
           response: 200,
           total: totalResult.length,
           grandTotal: productsData.length,
-          data: dataResult,
+          data: dataResult
         });
       }, 1000);
     });
