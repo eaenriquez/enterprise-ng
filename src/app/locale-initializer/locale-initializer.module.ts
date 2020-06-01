@@ -26,7 +26,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
   providers: [
     {
       provide: LOCALE_ID,
-      useValue: 'en-US'
+      useValue: navigator.language
     },
     {
       provide: APP_INITIALIZER,
@@ -41,4 +41,4 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     }
   ]
 })
-export class LocaleInitializerModule {}
+export class LocaleInitializerModule { }

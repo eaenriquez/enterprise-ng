@@ -249,7 +249,7 @@ NOTE: In the checked in code, the quickstart uses an APP_INITIALIZER to set the 
   providers: [
     {
       provide: LOCALE_ID,
-      useValue: 'ar-EG'
+      useValue: navigator.language
     }
   ],
   bootstrap: [AppComponent]

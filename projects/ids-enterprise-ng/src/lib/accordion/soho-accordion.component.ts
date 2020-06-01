@@ -141,8 +141,6 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   /**
    * Can be set to false if routing is externally handled, otherwise
    * links are handled normally.
-   *
-   *
    */
   @Input() public set rerouteOnLinkClick(rerouteOnLinkClick: boolean) {
     this.options.rerouteOnLinkClick = typeof (rerouteOnLinkClick) === 'boolean' && rerouteOnLinkClick;
