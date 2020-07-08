@@ -34,14 +34,6 @@ import { FullSizeModalDialogComponent } from './example-fullsize-modal.component
     SohoComponentsModule
   ],
   providers: [
-  ],
-  entryComponents: [
-    // You need to add any 'dynamic' components to the entry components otherwise the factory can't find them.
-    FullSizeModalDialogComponent,
-    ExampleModalDialogComponent,
-    NestedModalDialogComponent,
-    VetoableModalDialogComponent,
-    ModalDialogDataGridComponent
-  ],
+  ]
 })
 export class ModalDialogDemoModule { }

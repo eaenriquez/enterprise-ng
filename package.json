@@ -29,6 +29,9 @@
     "release:final": "cd projects/ids-enterprise-ng && release-it",
     "sync:lib": "node ./scripts/version-sync.js"
   },
+  "scripts": {
+    "postinstall": "ngcc"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.11",

@@ -459,18 +459,6 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     ApplicationMenuLazyService,
     SohoRenderLoopService
   ],
-  entryComponents: [
-    ExpandedDemoComponent,
-    NestedDatagridDemoComponent,
-    DemoCellDatePickerEditorComponent,
-    DemoCellInputEditorComponent,
-    DemoCellFormatterComponent,
-    DemoCellIntegerFormatterComponent,
-    ButtonCellFormatterComponent,
-    PriceCellFormatterComponent,
-    CodeBlockEditorComponent,
-    CardFormatterComponent
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

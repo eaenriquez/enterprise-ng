@@ -78,8 +78,6 @@ export class PriceCellFormatterComponent {
 }
 ```
 
-**Note:** Remember to add the component to an accessible module, and as this component is dynamically created it must also be added to `EntryComponents`.
-
 ## Custom 'Angular' Cell Editors
 
 For more complex scenarios, support is available to use components as cell editors.  This is done with two new properties on `SohoDataGridColumn`.

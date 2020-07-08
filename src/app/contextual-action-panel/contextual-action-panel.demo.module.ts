@@ -33,13 +33,6 @@ import { ContextualActionPanelFullSizeComponent } from './contextual-action-pane
     SohoComponentsModule
   ],
   providers: [
-  ],
-  entryComponents: [
-    ContextualActionPanelComponent,
-    ContextualActionPanelSearchfieldComponent,
-    ContextualActionPanelSearchfieldFlexComponent,
-    ContextualActionPanelFullSizeComponent,
-    NestedModalDialogComponent
-  ],
+  ]
 })
 export class ContextualActionPanelDemoModule { }

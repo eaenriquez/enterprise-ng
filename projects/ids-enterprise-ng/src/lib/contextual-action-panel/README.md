@@ -43,22 +43,6 @@ this.panel = this.contextualActionPanelService
 
 This returns a typed implementation of `SohoContextualActionPanelRef`.
 
-**NOTE:**  Angular needs to be able to find the dynamic panel component for it to be able to
-instantiate it, so you **MUST** add the component into the *entryComponents* of the hosting
-module. For example:
-
-```typescript
-@NgModule({
-  declarations: [ ContexutualActionPanelComponent],
-  exports: [],
-  imports: [ ..., SohoComponentsModule ],
-  providers: [],
-  entryComponents:[ ContexutualActionPanelComponent]
-  ]
-})
-export class ContexutualActionPanelModule {}
-```
-
 ## Methods
 
 | Name | Description |
