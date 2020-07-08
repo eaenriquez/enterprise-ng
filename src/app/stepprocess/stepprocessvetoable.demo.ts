@@ -3,8 +3,6 @@ import {
   Component,
 } from '@angular/core';
 
-import { Observable } from 'rxjs';
-
 @Component({
   selector: 'app-stepprocessvetoable-demo',
   templateUrl: 'stepprocessvetoable.demo.html'
